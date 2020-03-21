@@ -2,9 +2,10 @@ import requests
 
 
 #commitnumber = input("Write number of commits: ")
-#print(commitnumber)
 
-commitlist = requests.get("https://api.github.com/repos/freeCodeCamp/freeCodeCamp/commits?per_page=1")
-commited = commitlist.json()
+commit = requests.get("https://api.github.com/repos/freeCodeCamp/freeCodeCamp/commits?per_page=1")
+commit_json = commit.json()
 
-print(commited[0]['sha'])
+print("SHA: " + commit_json[0]['sha'])
+print("Message: " + commit_json[0]['commit']['message'])
+print("URL: " + commit_json[0]['url'])
